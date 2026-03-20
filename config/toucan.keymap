@@ -24,28 +24,28 @@
         base {
             display-name = "BASE";
             bindings = <
-&kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp BSPC  &kp LCTRL  &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp K  &kp L  &kp COLON  &kp ESCAPE  &kp LALT  &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA  &kp DOT  &kp APOSTROPHE  &kp SLASH  &kp LGUI  &mo 1  &kp ENTER  &kp SPACE  &mo 2  &kp RSHFT
+&kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp BSPC  &kp LCTRL  &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp K  &kp L  &kp COLON  &kp ESCAPE  &kp LALT  &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA  &kp DOT  &kp APOSTROPHE  &kp SLASH  &kp LSHIFT  &mo 1  &kp SPACE  &kp ENTER  &mo 2  &kp RIGHT_GUI
             >;
         };
 
         sym {
             display-name = "SYM";
             bindings = <
-&kp TAB  &kp N1  &kp N2  &kp N3  &kp N4  &kp PRCNT  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp BSPC  &kp LCTRL  &kp AT  &kp EXCL  &kp HASH  &kp UNDER  &kp CARET  &kp DOLLAR  &kp KP_MULTIPLY  &kp AMPS  &kp EQUAL  &kp BSLH  &kp GRAVE  &kp LSHFT  &trans  &kp LBRC  &kp LBKT  &kp LPAR  &kp PLUS  &kp MINUS  &kp RPAR  &kp RBKT  &kp RBRC  &kp PIPE  &kp TILDE  &kp LGUI  &trans  &trans  &kp RET  &trans  &trans
+&trans  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp BSPC  &trans  &kp AT  &kp EXCL  &kp HASH  &kp UNDER  &kp CARET  &kp DOLLAR  &kp KP_MULTIPLY  &kp AMPS  &kp EQUAL  &kp BSLH  &kp GRAVE  &trans  &kp PERCENT  &kp LBRC  &kp LBKT  &kp LPAR  &kp PLUS  &kp MINUS  &kp RPAR  &kp RBKT  &kp RBRC  &kp PIPE  &kp TILDE  &trans  &trans  &trans  &kp LANGUAGE_1  &trans  &trans
             >;
         };
 
         nav {
             display-name = "NAV";
             bindings = <
-&kp TAB  &trans  &trans  &trans  &trans  &trans  &kp C_SLEEP  &kp K_SCROLL_DOWN  &kp K_SCROLL_UP  &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &trans  &studio_unlock  &trans  &trans  &trans  &trans  &kp C_AC_ZOOM_OUT  &mkp MB1  &mkp MB2  &kp C_AC_ZOOM_IN  &trans  &trans  &kp LGUI  &trans  &trans  &kp RET  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &kp C_SLEEP  &kp K_SCROLL_DOWN  &kp K_SCROLL_UP  &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &trans  &studio_unlock  &trans  &trans  &trans  &trans  &kp C_AC_ZOOM_OUT  &mkp MB1  &mkp MB2  &kp C_AC_ZOOM_IN  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
         func {
             display-name = "ADJ";
             bindings = <
-&bt BT_CLR  &kp LG(LS(N1))  &kp LS(LG(N2))  &kp LS(LG(N3))  &kp LS(LG(N4))  &kp LS(LG(N5))  &kp LS(LG(N6))  &kp LS(LG(N7))  &kp LS(LG(N8))  &kp LS(LG(N9))  &kp LS(LG(N0))  &bt BT_SEL 2  &bt BT_SEL 0  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &bt BT_SEL 3  &bt BT_SEL 1  &kp F11  &kp F12  &kp F13  &kp F14  &kp F15  &kp F16  &kp F17  &kp F18  &kp F19  &kp F20  &bt BT_SEL 4  &kp LGUI  &trans  &trans  &kp RET  &trans  &trans
+&kp K_BACK  &kp LG(LS(N1))  &kp LS(LG(N2))  &kp LS(LG(N3))  &kp LS(LG(N4))  &kp LS(LG(N5))  &kp LS(LG(N6))  &kp LS(LG(N7))  &kp LS(LG(N8))  &kp LS(LG(N9))  &kp LS(LG(N0))  &kp K_FORWARD  &kp K_PREV  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp K_NEXT  &trans  &kp F11  &kp F12  &kp F13  &kp F14  &kp F15  &kp F16  &kp F17  &kp F18  &kp F19  &kp F20  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
