@@ -14,7 +14,7 @@
 
         tri_layer {
             if-layers = <1 2>;
-            then-layer = <3>;
+            then-layer = <5>;
         };
     };
 
@@ -38,7 +38,7 @@
         nav {
             display-name = "NAV";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &kp C_SLEEP  &kp K_SCROLL_DOWN  &kp K_SCROLL_UP  &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &trans  &studio_unlock  &trans  &trans  &trans  &trans  &kp C_AC_ZOOM_OUT  &mkp MB1  &mkp MB2  &kp C_AC_ZOOM_IN  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &kp C_SLEEP  &kp K_SCROLL_DOWN  &kp K_SCROLL_UP  &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  &trans  &trans  &trans  &trans  &trans  &trans  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &trans  &trans  &trans  &trans  &trans  &trans  &kp C_AC_ZOOM_OUT  &mkp MB1  &mkp MB2  &kp C_AC_ZOOM_IN  &trans  &mo 4  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
@@ -49,10 +49,15 @@
             >;
         };
 
+        bt {
+            display-name = "NAV";
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &bt BT_CLR  &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &studio_unlock  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
         extra_1 { status = "reserved"; };
 
         extra_2 { status = "reserved"; };
-
-        extra_3 { status = "reserved"; };
     };
 };
