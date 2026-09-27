@@ -1,5 +1,15 @@
 #include "toucan.dtsi"
 
+/ {
+    scroll_inertia: scroll_inertia {
+        compatible = "zmk,input-processor-scroll-inertia";
+        #input-processor-cells = <0>;
+        axis = <0>;
+        scale = <1>;
+        scale-div = <5>;
+    };
+};
+
 &pinctrl {
     spi0_default: spi0_default {
         group1 {
@@ -45,4 +55,13 @@ nice_view_spi: &spi0 {
 
 &glidepoint_listener {
     status = "okay";
+
+    scroller {
+        input-processors = <
+            &zip_xy_to_scroll_mapper
+            &zip_scroll_transform INPUT_TRANSFORM_Y_INVERT
+            &scroll_inertia
+            &zip_scroll_scaler 1 5
+        >;
+    };
 };
