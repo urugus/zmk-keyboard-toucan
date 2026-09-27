@@ -10,6 +10,8 @@ manifest:
       url-base: https://github.com/caksoylar
     - name: geeksville
       url-base: https://github.com/geeksville
+    - name: mjmjm0101
+      url-base: https://github.com/mjmjm0101
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -17,6 +19,9 @@ manifest:
     - name: cirque-input-module
       remote: geeksville
       revision: toucan
+    - name: zmk-input-processor-scroll-inertia
+      remote: mjmjm0101
+      revision: main
     - name: zmk-rgbled-widget
       remote: caksoylar
       revision: v0.3
