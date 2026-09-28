@@ -7,6 +7,11 @@
         axis = <0>;
         scale = <1>;
         scale-div = <5>;
+        start = <10>;
+        move = <30>;
+        min-events = <3>;
+        decel-samples = <1>;
+        release = <32>;
     };
 };
 
