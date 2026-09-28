@@ -6,7 +6,7 @@
         #input-processor-cells = <0>;
         axis = <0>;
         scale = <1>;
-        scale-div = <5>;
+        scale-div = <6>;
         start = <20>;
         move = <50>;
         min-events = <5>;
