@@ -1,6 +1,14 @@
 #include "toucan.dtsi"
 
 / {
+    // Pointer speed adjustable from the Toucan Studio app (toucan-studio firmware module).
+    // 225 = the previous `&zip_xy_scaler 9 4`.
+    toucan_pointer_speed: toucan_pointer_speed {
+        compatible = "zmk,input-processor-toucan-pointer-speed";
+        #input-processor-cells = <0>;
+        default-scale-x100 = <225>;
+    };
+
     scroll_inertia: scroll_inertia {
         compatible = "zmk,input-processor-scroll-inertia";
         #input-processor-cells = <0>;
@@ -60,6 +68,7 @@ nice_view_spi: &spi0 {
 
 &glidepoint_listener {
     status = "okay";
+    input-processors = <&toucan_pointer_speed>;
 
     /delete-node/ scroller;
 
