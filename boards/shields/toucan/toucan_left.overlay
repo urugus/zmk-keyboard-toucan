@@ -1,6 +1,39 @@
 #include "toucan.dtsi"
 
 / {
+    // Pointer speed adjustable from the Toucan Studio app (toucan-studio firmware module).
+    // 225 = the previous `&zip_xy_scaler 9 4`.
+    toucan_pointer_speed: toucan_pointer_speed {
+        compatible = "zmk,input-processor-toucan-pointer-speed";
+        #input-processor-cells = <0>;
+        default-scale-x100 = <225>;
+    };
+
+    // Per-layer trackpad scrolling adjustable from the Toucan Studio app. The children
+    // reproduce the previous layer overrides: layer 1 = precision (Y_INVERT, 1/16),
+    // layer 2 = inertia (Y_INVERT, 1/5, coasting at 5/6). Other layers keep the cursor.
+    toucan_scroll: toucan_scroll {
+        compatible = "zmk,input-processor-toucan-scroll";
+        #input-processor-cells = <1>;
+        inertia = <&scroll_inertia>;
+        coast-ratio = <5 6>;
+
+        precision {
+            layer = <1>;
+            speed-x10000 = <625>;
+            dir = <1>;
+        };
+
+        inertial {
+            layer = <2>;
+            speed-x10000 = <2000>;
+            dir = <1>;
+            inertia-on;
+            start = <20>;
+            decay = <990>;
+        };
+    };
+
     scroll_inertia: scroll_inertia {
         compatible = "zmk,input-processor-scroll-inertia";
         #input-processor-cells = <0>;
@@ -60,25 +93,9 @@ nice_view_spi: &spi0 {
 
 &glidepoint_listener {
     status = "okay";
+    // Scrolling layers turn X/Y into wheel events before the pointer speed applies.
+    input-processors = <&toucan_scroll 0 &scroll_inertia &toucan_scroll 1 &toucan_pointer_speed>;
 
     /delete-node/ scroller;
 
-    precision_scroller {
-        layers = <1>;
-        input-processors = <
-            &zip_xy_to_scroll_mapper
-            &zip_scroll_transform INPUT_TRANSFORM_Y_INVERT
-            &zip_scroll_scaler 1 16
-        >;
-    };
-
-    inertia_scroller {
-        layers = <2>;
-        input-processors = <
-            &zip_xy_to_scroll_mapper
-            &zip_scroll_transform INPUT_TRANSFORM_Y_INVERT
-            &scroll_inertia
-            &zip_scroll_scaler 1 5
-        >;
-    };
 };
