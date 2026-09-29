@@ -1,5 +1,8 @@
 name: Build ZMK firmware
-on: [push, pull_request, workflow_dispatch]
+# Manual only: the Toucan Studio modules (firmware/ in urugus/toucan-studio) are not
+# fetched by this workflow yet, so automatic builds would fail. Build locally with
+# toucan-studio's firmware/build.sh until CI can fetch them.
+on: [workflow_dispatch]
 
 jobs:
   build:
