@@ -9,35 +9,34 @@
         default-scale-x100 = <225>;
     };
 
-    // Scroll settings adjustable from the Toucan Studio app. Defaults reproduce the previous
-    // chains: `zip_scroll_transform Y_INVERT` + `zip_scroll_scaler 1 16` / `1 5`.
-    // Each node is used twice: <&node 0> = direction, <&node 1> = speed.
-    toucan_scroll_precision: toucan_scroll_precision {
+    // Per-layer trackpad scrolling adjustable from the Toucan Studio app. The children
+    // reproduce the previous layer overrides: layer 1 = precision (Y_INVERT, 1/16),
+    // layer 2 = inertia (Y_INVERT, 1/5, coasting at 5/6). Other layers keep the cursor.
+    toucan_scroll: toucan_scroll {
         compatible = "zmk,input-processor-toucan-scroll";
         #input-processor-cells = <1>;
-        mode = <0>;
-        default-speed-x10000 = <625>;
-        default-dir = <1>;
-    };
-
-    toucan_scroll_inertia: toucan_scroll_inertia {
-        compatible = "zmk,input-processor-toucan-scroll";
-        #input-processor-cells = <1>;
-        mode = <1>;
-        default-speed-x10000 = <2000>;
-        default-dir = <1>;
         inertia = <&scroll_inertia>;
-        default-start = <20>;
-        default-decay = <990>;
-        // Coasting runs at 5/6 of active scrolling, as with scale 1 / scale-div 6 before.
         coast-ratio = <5 6>;
+
+        precision {
+            layer = <1>;
+            speed-x10000 = <625>;
+            dir = <1>;
+        };
+
+        inertial {
+            layer = <2>;
+            speed-x10000 = <2000>;
+            dir = <1>;
+            inertia-on;
+            start = <20>;
+            decay = <990>;
+        };
     };
 
     scroll_inertia: scroll_inertia {
         compatible = "zmk,input-processor-scroll-inertia";
         #input-processor-cells = <0>;
-        // Reset inertia state as soon as the scroll layer turns off.
-        layer = <2>;
         axis = <0>;
         scale = <1>;
         scale-div = <6>;
@@ -94,26 +93,9 @@ nice_view_spi: &spi0 {
 
 &glidepoint_listener {
     status = "okay";
-    input-processors = <&toucan_pointer_speed>;
+    // Scrolling layers turn X/Y into wheel events before the pointer speed applies.
+    input-processors = <&toucan_scroll 0 &scroll_inertia &toucan_scroll 1 &toucan_pointer_speed>;
 
     /delete-node/ scroller;
 
-    precision_scroller {
-        layers = <1>;
-        input-processors = <
-            &zip_xy_to_scroll_mapper
-            &toucan_scroll_precision 0
-            &toucan_scroll_precision 1
-        >;
-    };
-
-    inertia_scroller {
-        layers = <2>;
-        input-processors = <
-            &zip_xy_to_scroll_mapper
-            &toucan_scroll_inertia 0
-            &scroll_inertia
-            &toucan_scroll_inertia 1
-        >;
-    };
 };
