@@ -78,3 +78,12 @@
     // Optional
     // input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
 };
+
+/ {
+    // Trackpad settings adjustable from the Toucan Studio app through the left half
+    // (toucan-studio firmware module). Defaults come from &glidepoint above.
+    toucan_right_trackpad: toucan_right_trackpad {
+        compatible = "zmk,toucan-right-trackpad";
+        trackpad = <&glidepoint>;
+    };
+};
