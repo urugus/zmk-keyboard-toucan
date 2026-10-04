@@ -109,7 +109,5 @@
         extra_26 { status = "reserved"; };
 
         extra_27 { status = "reserved"; };
-
-        extra_28 { status = "reserved"; };
     };
 };
